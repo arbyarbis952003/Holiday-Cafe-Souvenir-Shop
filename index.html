@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="" />
+    <link rel="icon" type="image/png" href="images/pic3.png">
+    <title>Login</title>
+    <style>
+
+body{
+    background-image: url(images/nbg.png);
+    background-size: cover;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FEF3DC;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;  
+    border: 1px solid #ffdcdc;
+    border-radius: 20px;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 30px;
+}
+
+p{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input{
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid rgb(137, 137, 137);
+    margin-top: 10px;
+    outline: none;
+}
+
+.login-btn{
+    border: none;
+    background-color: #5a3b25;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+
+        
+
+    </style>
+</head>
+<body>
+
+      <div class="container">
+        <h1 style="color: #5a3b25;">Login</h1>
+        <form>
+          <label style="color: #5a3b25;" for="username">Username</label>
+          <input type="text" name="username" />
+          <label style="color: #5a3b25;" for="password">Password</label>
+          <input type="password" name="password" />
+          <a href="index.html"><input type="submit" class="login-btn" value="Login" />
+           </a>
+        </form>
+
+        
+      </div>
+      <script src="javascript/login.js"></script>
+      </body>
+      </html>
+      
+
+
+    
+</body>
+</html>

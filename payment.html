@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/pic3.png">
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(images/nbg.png);
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #FEF3DC;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #5a3b25;
+            text-align: center;
+        }
+        .payment-details {
+            margin-bottom: 20px;
+            color: #5a3b25;
+        }
+        .payment-details span {
+            font-weight: bold;
+        }
+        .payment-method {
+            margin-bottom: 20px;
+        }
+        .payment-method label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .payment-method input[type="radio"] {
+            margin-right: 10px;
+        }
+        .card-info {
+            margin-bottom: 20px;
+        }
+        .card-info label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .card-info input[type="text"],
+        .card-info input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .payment-btn {
+            background-color: #5a3b25;
+            border: none;
+            color: #FEF3DC;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+     .closing{
+        background-color: white;
+        width: 50;
+        border-radius: 1%;
+        cursor: pointer;
+
+     }
+       
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Payment Details</h1>
+    <div class="payment-details">
+        <p>You are about to pay:</p>
+        <p><span id="payment-amount">Php 0.00</span></p>
+    </div>
+
+    <div class="payment-method">
+        <label for="payment-method">Select Payment Method:</label>
+
+        <a href="Gcash.html"><button id="close" class="closing" onClick="javascript:close_clip()"><img src="images/GCash-Logo.png" width="65"/></button></a>
+        <a href="paymaya.html"><button id="close" class="closing" onClick="javascript:close_clip()"><img src="images/paymaya.png" width="65" height="36"/></button></a>
+        <a href="Paypal.html"><button id="close" class="closing" onClick="javascript:close_clip()"><img src="images/paypal.webp" width="65"/></button></a>
+
+
+    </div>
+
+    <div class="card-info">
+        <h3>We also accept Credit Cards:</h3>
+        <img src="images/visa.png" alt="visa" width="45">
+        <img src="images/MasterCard_Logo.svg.png" alt="master card" width="45">
+        <img src="" alt="">
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number" name="card-number" placeholder="Enter card number">
+        <label for="expiry">Expiry Date:</label>
+        <input type="text" id="expiry" name="expiry" placeholder="MM/YYYY">
+        <label for="cvv">CVV:</label>
+        <input type="number" id="cvv" name="cvv" placeholder="Enter CVV">
+    </div>
+
+    <button class="payment-btn" onclick="confirmPayment()">Confirm Payment</button>
+</div>
+
+<script>
+    const totalAmount = parseFloat(sessionStorage.getItem('totalAmount')).toFixed(2);
+    const paymentAmountElement = document.getElementById('payment-amount');
+    paymentAmountElement.textContent = `Php ${totalAmount}`;
+    
+    function confirmPayment() {
+       
+        alert('Payment confirmed!');
+        window.location.href = 'thank_you.html';
+    }
+</script>
+
+</body>
+</html>

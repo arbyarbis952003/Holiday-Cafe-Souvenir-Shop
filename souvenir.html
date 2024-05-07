@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/pic3.png">
+    <title>Souvenirs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(images/pic23.png);
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #000000b9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .menu{
+            width: 100%;
+            padding: 70px 0;
+        }
+        
+        .menu h1{
+            font-size: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .menu h1 span{
+            color: #5a3b25;
+            margin-left: 15px;
+            font-family: mv boli;
+        }
+        
+      
+        
+        .menu .menu_box{
+           
+            width: 95%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 15px;
+        }
+        
+        .menu .menu_box .menu_card{
+            background-color: #FEF3DC;
+            width: 300px;
+            height: 480px;
+            padding-top: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .menu .menu_box .menu_card .menu_image{
+            width: 280px;
+            height: 245px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .menu .menu_box .menu_card .menu_image img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: 0.3s;
+        }
+        
+        .menu .menu_box .menu_card .menu_image:hover img{
+            transform: scale(1.1);
+        }
+        
+        .menu .menu_box .menu_card .small_card{
+            width: 45px;
+            height: 45px;
+            float: right;
+            position: relative;
+            top: -240px;
+            right: -8px;
+            opacity: 0;
+            border-radius: 7px;
+            transition: 0.3s;
+        }
+        
+        .menu .menu_box .menu_card:hover .small_card{
+            position: relative;
+            top: -240px;
+            right: 20px;
+            opacity: 1;
+        }
+        
+        .menu .menu_box .menu_card .small_card i{
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 50px;
+            color: #000;
+            cursor: pointer;
+            text-shadow: 0 0 6px #000;
+            transition: 0.2s;
+        }
+        
+       
+      
+        
+        .menu .menu_box .menu_card .menu_info h3{
+            width: 60%;
+            text-align: center;
+            margin: 10px auto 10px auto;
+            font-size: 20px;
+            color: #5a3b25;
+        }
+
+        .menu .menu_box .menu_card .menu_info p{
+            width: 60%;
+            text-align: center;
+            margin: 10px auto 10px auto;
+            font-size: 15px;
+            color: #5a3b25;
+        }
+        
+        .menu .menu_box .menu_card .menu_info p{
+            text-align: center;
+            margin-top: 8px;
+            line-height: 21px;
+        }
+        
+        .menu .menu_box .menu_card .menu_info h3{
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .menu .menu_box .menu_card .menu_info .menu_icon{
+            color: #fac031;
+            text-align: center;
+            margin: 10px 0 10px 0;
+        }
+        
+        .menu .menu_box .menu_card .menu_info .menu_btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            background: #000;
+            padding: 8px 10px;
+            margin: 0 80px;
+            transition: 0.3s;
+        }
+        
+        .quantity{
+            color: #5a3b25;
+        }
+
+.add-to-cart {
+   
+    background-color: #5a3b25;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    align-items: center;
+}
+
+#shopping-cart {
+    position: fixed;
+    top: 55px;
+    right: 0px;
+    padding: 10px;
+    background-color: #5a3b25;
+    border-radius: 5px;
+  
+}
+
+section nav{
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    left: 0;
+    background: #5a3b25;
+   
+    z-index: 1000;
+}
+
+section nav .logo img{
+    width: 100px;
+    cursor: pointer;
+    margin: 7px 0;
+}
+
+section nav ul{
+    list-style: none;
+}
+
+section nav ul li{
+    display: inline-block;
+    margin: 0 15px;
+}
+
+section nav ul li a{
+    text-decoration: none;
+    color: #faf8f8;
+    font-weight: 500;
+    font-size: 20px;
+    transition: 0.1s;
+    text-align: center;
+}
+
+section nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #D9B69F;
+    display: block;
+    transition: 0.2s linear;
+}
+
+section nav ul li a:hover::after{
+    width: 100%;
+}
+
+section nav ul li a:hover{
+    color: #D9B69F;
+}
+
+section nav .icon i{
+    font-size: 18px;
+    color: #000;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+  .checkout{
+
+    margin-right: 20px;
+    background-color: #FEF3DC;
+    border: none;
+    color: #5a3b25;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+
+  .blue {
+    color: #FEF3DC;
+  }
+
+  #cart-items {
+    color: #D9B69F;
+    
+
+  }
+
+.cart{
+    margin-left: 51%;
+}
+
+.logout-btn{
+         
+    border: none;
+    background-color: #fef3dc;
+    color: #5a3b25;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-left: -1%;
+    
+}
+
+.logout-btn:hover {
+    background-color: #ffffff;
+  
+
+}
+
+
+    </style>
+</head>
+<body>
+
+<div id="main">
+    <section id="Home">
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="product.html">Menu</a></li>
+                <li><a href="souvenir.html">Souvenirs</a></li>
+                <li><a href="about1.html">About</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li class="cart"><a href="#" onclick="toggleCart()">🛒</a></li> 
+                <button class="logout-btn">Logout</button> </div> <script src="JavaScript/logout.js"></script>
+            </ul>
+        </nav>
+    </section>
+
+    <div class="menu" id="Menu">
+    <h1><span>Souvenirs</span></h1>
+
+
+    <div class="menu_box">
+  
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/flower.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Easter Flowers</h3>
+                <p>Description</p>
+                <h3 >Php129.00</h3>
+
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity1" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Easter Eggs & Flowers', 129.00, 'quantity1')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/easter.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Easter Eggs</h3>
+                <p>Desription</p>
+                <h3 >Php129.00</h3>
+
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity2" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Easter Eggss', 129.00, 'quantity2')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/luckyknots.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Chinese lucky knots</h3>
+                <p>Description</p>
+                <h3 >Php99.00</h3>
+
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity3" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Chinese lucky knots', 99.00, 'quantity3')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/scarf.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Chinese Lucky Scarf</h3>
+                <p>Description</p>
+                <h3 >Php89.00</h3>
+
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity4" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Chinese Lucky Scarf', 89.00, 'quantity4')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+        
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/christmas.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Christmas Tree-Topper</h3>
+                <p>Description</p>
+                <h3 >Php99.00</h3>
+
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity5" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Christmas Star(Parol)', 99.00, 'quantity5')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/lantern.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3>Christmas Lantern</h3>
+                <p>Description</p>
+               <h3>Php 149.00</h3>
+               
+             
+                <div class="quantity">
+                    Quantity: <input type="number" id="quantity6" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Christmas Lantern', 149.00, 'quantity6')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/indepence day.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Sparkle Origami</h3>
+                <p>Description</p>
+                <h3>Php 49.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity7 value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Independence Oigami', 49.00, 'quantity7')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/Philippines.png">
+            </div>
+
+
+            <div class="menu_info">
+                <h3>Mugs & Keychain</h3>
+                <p>Description</p>
+                
+                <h3>Php 95.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity4" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Macchiato', 95.00, 'quantity4')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/halloween.jpg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3>Jack-O'-Lantern</h3>
+                <p>Description</p>
+                
+                <h3>Php 89.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity5" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Jack-O-Lantern', 89.00, 'quantity5')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/stuff toy.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Jack-O-Lantern(stuff toy)</h3>
+                <p >Description</p>
+                
+                <h3>Php 149.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity6" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Jack-O-Lantern(stuff toy)', 149.00, 'quantity6')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/laposada.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >La Posada</h3>
+                <p >Description</p>
+                
+                <h3>Php 99.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity7" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('La Posada', 99.00, 'quantity7')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/church.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Miniature Church</h3>
+                <p>Description</p>
+                
+                <h3>Php 299.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity8" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Miniature Church', 299.00, 'quantity8')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+
+     
+
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/thanks.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Thanksgiving Painting</h3>
+                <p>Description</p>
+                
+                <h3>Php 299.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity9" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Thanksgiving Painting', 299.00, 'quantity9')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/keychain.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >Thanksgiving Keychain</h3>
+                <p >Description</p>
+                 
+                <h3>Php 89.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity10" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Thanksgiving Keychain', 89.00, 'quantity10')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/new year.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >New Year's Day Keychain</h3>
+                <h3 >Description</h3>
+                
+                <h3>Php 49.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity11" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('New Year Keychain', 49.00, 'quantity11')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+
+        <div class="menu_card">
+
+            <div class="menu_image">
+                <img src="images/2024.jpeg">
+            </div>
+
+
+            <div class="menu_info">
+                <h3 >2024 Keychain</h3>
+                <h3 >Description</h3>
+                
+                <h3>Php 49.00</h3>
+             
+                <div class="quantity">
+                   Quantity: <input type="number" id="quantity12" value="1" min="1">
+                </div>
+                <button class="add-to-cart" onclick="addToCart('2024 Keychain', 49.00, 'quantity12')">🛒Add to Cart</button>
+            </div>
+
+        </div> 
+    </div>
+</div>
+
+    <div id="shopping-cart" style="display: none;">
+        
+        <h4 style="color: #FEF3DC;">Cart</h4>
+        <ul id="cart-items"></ul>
+        <p style="color:#FEF3DC ;">Total: <span id="total" class="blue">Php 0.00</span></p>
+        <a href="#" ><button class="checkout" onclick="checkout()">Checkout</button></a> 
+    </div>
+</div>
+
+<script>
+    let cart = [];
+    let totalPrice = 0;
+
+    function addToCart(productName, price, quantityInputId) {
+        const quantity = parseInt(document.getElementById(quantityInputId).value);
+        cart.push({ name: productName, price: price, quantity: quantity });
+        totalPrice += price * quantity;
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItemsElement = document.getElementById('cart-items');
+        cartItemsElement.innerHTML = '';
+        cart.forEach(item => {
+            const listItem = document.createElement('li');
+            const productName = document.createElement('span');
+            productName.textContent = item.name;
+            productName.classList.add('blue');
+            const multiplicationSign = document.createElement('span');
+            multiplicationSign.textContent = ' x ';
+            multiplicationSign.classList.add('blue');
+            const quantity = document.createElement('span');
+            quantity.textContent = item.quantity;
+            quantity.classList.add('blue');
+            const dashSymbol = document.createElement('span');
+            dashSymbol.textContent = ' - ';
+            dashSymbol.classList.add('blue');
+            const amount = document.createElement('span');
+            amount.textContent = `Php${item.price * item.quantity}`;
+            amount.classList.add('blue');
+            listItem.appendChild(productName);
+            listItem.appendChild(multiplicationSign);
+            listItem.appendChild(quantity);
+            listItem.appendChild(dashSymbol);
+            listItem.appendChild(amount);
+            cartItemsElement.appendChild(listItem);
+        });
+        document.getElementById('total').textContent = `Php ${totalPrice.toFixed(2)}`;
+    }
+
+    function checkout() {
+       
+        sessionStorage.setItem('orderDetails', JSON.stringify(cart));
+        sessionStorage.setItem('totalAmount', totalPrice.toFixed(2));
+
+       
+        window.location.href = 'confirmation.html';
+    }
+
+    function toggleCart() {
+        const cartElement = document.getElementById('shopping-cart');
+        if (cartElement.style.display === 'none') {
+            cartElement.style.display = 'block';
+            updateCart(); 
+        } else {
+            cartElement.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
